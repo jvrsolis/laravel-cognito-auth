@@ -1,5 +1,5 @@
 {
-    "name": "Kovaloff/laravel-cognito-auth",
+    "name": "kovaloff/laravel-cognito-auth",
     "description": "An auth provider for Laravel for AWS Cognito.",
     "keywords": [
         "AWS Cognito",
