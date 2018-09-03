@@ -1,6 +1,6 @@
 <?php
 
-namespace BlackBits\LaravelCognitoAuth\Exceptions;
+namespace Kovaloff\LaravelCognitoAuth\Exceptions;
 
 class InvalidUserModelException extends \Exception
 {

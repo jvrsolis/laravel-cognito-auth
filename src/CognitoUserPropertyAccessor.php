@@ -1,6 +1,6 @@
 <?php
 
-namespace BlackBits\LaravelCognitoAuth;
+namespace Kovaloff\LaravelCognitoAuth;
 
 class CognitoUserPropertyAccessor
 {

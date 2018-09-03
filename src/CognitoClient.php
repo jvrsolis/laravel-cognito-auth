@@ -1,6 +1,6 @@
 <?php
 
-namespace BlackBits\LaravelCognitoAuth;
+namespace Kovaloff\LaravelCognitoAuth;
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Password;
