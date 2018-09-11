@@ -1,6 +1,5 @@
 {
     "name": "kovaloff/laravel-cognito-auth",
-    "type": "composer-plugin",
     "description": "An auth provider for Laravel for AWS Cognito.",
     "keywords": [
         "AWS Cognito",
@@ -25,8 +24,5 @@
         "psr-4": {
             "Kovaloff\\LaravelCognitoAuth\\": ""
         }
-    },
-    "extra": {
-        "class": "Kovaloff\\LaravelCognitoAuth\\ComposerPlugin"
     }
 }
