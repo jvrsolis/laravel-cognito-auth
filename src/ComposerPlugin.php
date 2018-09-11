@@ -1,3 +1,5 @@
+<?php 
+
 namespace Kovaloff\LaravelCognitoAuth;
 
 use Composer\Composer;
