@@ -27,10 +27,6 @@
         }
     },
     "extra": {
-        "laravel": {
-            "providers": [
-                "Kovaloff\\LaravelCognitoAuth\\CognitoAuthServiceProvider"
-            ]
-        }
+        "class": "Kovaloff\\LaravelCognitoAuth\\CognitoAuthServiceProvider"
     }
 }
