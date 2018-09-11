@@ -25,12 +25,5 @@
         "psr-4": {
             "Kovaloff\\LaravelCognitoAuth\\": ""
         }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Kovaloff\\LaravelCognitoAuth\\CognitoAuthServiceProvider"
-            ]
-        }
     }
 }
