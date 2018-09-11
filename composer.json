@@ -27,6 +27,6 @@
         }
     },
     "extra": {
-        "class": "Kovaloff\\LaravelCognitoAuth\\CognitoAuthServiceProvider"
+        "class": "Kovaloff\\LaravelCognitoAuth\\ComposerPlugin"
     }
 }
