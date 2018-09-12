@@ -1,6 +1,6 @@
 <?php 
 
-namespace Kovaloff\LaravelCognitoAuth;
+namespace JvrSolis\LaravelCognitoAuth;
 
 use Composer\Composer;
 use Composer\EventDispatcher\EventSubscriberInterface;
@@ -36,7 +36,7 @@ class ComposerPlugin implements PluginInterface, EventSubscriberInterface
             ),
         );
     }
-    
+
     public static function saveRevisionId()
     {
         $revId = shell_exec('cd ' . __DIR__ . '; git rev-parse --short HEAD');

@@ -1,10 +1,10 @@
 <?php
 
-namespace Kovaloff\LaravelCognitoAuth\Auth;
+namespace JvrSolis\LaravelCognitoAuth\Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
-use Kovaloff\LaravelCognitoAuth\CognitoClient;
+use JvrSolis\LaravelCognitoAuth\CognitoClient;
 use Illuminate\Foundation\Auth\ResetsPasswords as BaseResetsPasswords;
 
 trait ResetsPasswords
@@ -74,8 +74,8 @@ trait ResetsPasswords
     protected function rules()
     {
         return [
-            'token'    => 'required',
-            'email'    => 'required|email',
+            'token' => 'required',
+            'email' => 'required|email',
             'password' => 'required|confirmed|min:8',
         ];
     }

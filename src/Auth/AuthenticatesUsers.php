@@ -1,10 +1,10 @@
 <?php
 
-namespace Kovaloff\LaravelCognitoAuth\Auth;
+namespace JvrSolis\LaravelCognitoAuth\Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
-use Kovaloff\LaravelCognitoAuth\Exceptions\NoLocalUserException;
+use JvrSolis\LaravelCognitoAuth\Exceptions\NoLocalUserException;
 use Aws\CognitoIdentityProvider\Exception\CognitoIdentityProviderException;
 use Illuminate\Foundation\Auth\AuthenticatesUsers as BaseAuthenticatesUsers;
 

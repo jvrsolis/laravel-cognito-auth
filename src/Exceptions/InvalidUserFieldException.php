@@ -1,6 +1,6 @@
 <?php
 
-namespace Kovaloff\LaravelCognitoAuth\Exceptions;
+namespace JvrSolis\LaravelCognitoAuth\Exceptions;
 
 class InvalidUserFieldException extends \Exception
 {

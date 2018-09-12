@@ -1,11 +1,11 @@
 {
-    "name": "kovaloff/laravel-cognito-auth",
+    "name": "jvrsolis/laravel-cognito-auth",
     "description": "An auth provider for Laravel for AWS Cognito.",
     "keywords": [
         "AWS Cognito",
         "Auth Provider"
     ],
-    "homepage": "https://github.com/Kovaloff/laravel-cognito-auth",
+    "homepage": "https://github.com/jvrsolis/laravel-cognito-auth",
     "license": "MIT",
     "require": {
         "php": "^7.1",
@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Kovaloff\\LaravelCognitoAuth\\": ""
+            "JvrSolis\\LaravelCognitoAuth\\": ""
         }
     }
 }

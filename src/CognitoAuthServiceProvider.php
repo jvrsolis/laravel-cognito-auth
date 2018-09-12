@@ -1,10 +1,10 @@
 <?php
 
-namespace Kovaloff\LaravelCognitoAuth;
+namespace JvrSolis\LaravelCognitoAuth;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
-use Kovaloff\LaravelCognitoAuth\Auth\CognitoGuard;
+use JvrSolis\LaravelCognitoAuth\Auth\CognitoGuard;
 use Aws\CognitoIdentityProvider\CognitoIdentityProviderClient;
 
 class CognitoAuthServiceProvider extends ServiceProvider
@@ -12,18 +12,18 @@ class CognitoAuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../config/cognito.php' => config_path('cognito.php'),
+            __DIR__ . '/../config/cognito.php' => config_path('cognito.php'),
         ], 'config');
 
         $this->publishes([
-            __DIR__.'/Resources/views' => resource_path('views/vendor/black-bits/laravel-cognito-auth'),
+            __DIR__ . '/Resources/views' => resource_path('views/vendor/black-bits/laravel-cognito-auth'),
         ], 'views');
 
         $this->app->singleton(CognitoClient::class, function (Application $app) {
             $config = [
                 'credentials' => config('cognito.credentials'),
-                'region'      => config('cognito.region'),
-                'version'     => config('cognito.version'),
+                'region' => config('cognito.region'),
+                'version' => config('cognito.version'),
             ];
 
             return new CognitoClient(
@@ -50,12 +50,12 @@ class CognitoAuthServiceProvider extends ServiceProvider
             return $guard;
         });
 
-        $this->loadRoutesFrom(__DIR__.'/routes.php');
-        $this->loadViewsFrom(__DIR__.'/Resources/views', 'black-bits/laravel-cognito-auth');
+        $this->loadRoutesFrom(__DIR__ . '/routes.php');
+        $this->loadViewsFrom(__DIR__ . '/Resources/views', 'black-bits/laravel-cognito-auth');
     }
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/cognito.php', 'cognito');
+        $this->mergeConfigFrom(__DIR__ . '/../config/cognito.php', 'cognito');
     }
 }

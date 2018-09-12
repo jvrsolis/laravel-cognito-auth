@@ -1,6 +1,6 @@
 <?php
 
-namespace Kovaloff\LaravelCognitoAuth\Auth;
+namespace JvrSolis\LaravelCognitoAuth\Auth;
 
 use Aws\Result;
 use Illuminate\Auth\SessionGuard;
@@ -10,8 +10,8 @@ use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Symfony\Component\HttpFoundation\Request;
 use Illuminate\Contracts\Auth\Authenticatable;
-use Kovaloff\LaravelCognitoAuth\CognitoClient;
-use Kovaloff\LaravelCognitoAuth\Exceptions\InvalidUserModelException;
+use JvrSolis\LaravelCognitoAuth\CognitoClient;
+use JvrSolis\LaravelCognitoAuth\Exceptions\InvalidUserModelException;
 
 class CognitoGuard extends SessionGuard implements StatefulGuard
 {
@@ -33,7 +33,7 @@ class CognitoGuard extends SessionGuard implements StatefulGuard
         CognitoClient $client,
         UserProvider $provider,
         Session $session,
-        ?Request $request = null
+        ? Request $request = null
     ) {
         $this->client = $client;
         parent::__construct($name, $provider, $session, $request);
@@ -77,7 +77,7 @@ class CognitoGuard extends SessionGuard implements StatefulGuard
         /** @var Model $user */
         $user = new $userModel;
 
-        if (! $user instanceof Model) {
+        if (!$user instanceof Model) {
             throw new InvalidUserModelException('User model does not extend Eloquent Model class.');
         }
 

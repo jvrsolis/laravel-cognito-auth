@@ -1,10 +1,10 @@
 <?php
 
-namespace Kovaloff\LaravelCognitoAuth\Auth;
+namespace JvrSolis\LaravelCognitoAuth\Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
-use Kovaloff\LaravelCognitoAuth\CognitoClient;
+use JvrSolis\LaravelCognitoAuth\CognitoClient;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails as BaseSendsPasswordResetEmails;
 
 trait SendsPasswordResetEmails

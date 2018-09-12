@@ -3,7 +3,7 @@
 All notable changes to `laravel-cognito-auth` will be documented in this file
 
 ## 0.1.3 - 2018-08-20
-
+- added illuminate 5.7 support
 - implemented confirmSignUp function in CognitoClient
 - added CognitoUserPropertyAccessor class 
 - added delete_user config

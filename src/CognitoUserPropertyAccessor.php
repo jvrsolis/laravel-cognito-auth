@@ -1,6 +1,6 @@
 <?php
 
-namespace Kovaloff\LaravelCognitoAuth;
+namespace JvrSolis\LaravelCognitoAuth;
 
 class CognitoUserPropertyAccessor
 {
@@ -27,7 +27,7 @@ class CognitoUserPropertyAccessor
     {
         $cognitoUser = $this->cognitoClient->getUser($username);
 
-        if (! $cognitoUser) {
+        if (!$cognitoUser) {
             return false;
         }
 
@@ -51,7 +51,7 @@ class CognitoUserPropertyAccessor
     {
         $cognitoUser = $this->cognitoClient->getUser($username);
 
-        if (! $cognitoUser) {
+        if (!$cognitoUser) {
             return false;
         }
 

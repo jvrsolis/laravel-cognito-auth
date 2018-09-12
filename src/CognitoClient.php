@@ -1,6 +1,6 @@
 <?php
 
-namespace Kovaloff\LaravelCognitoAuth;
+namespace JvrSolis\LaravelCognitoAuth;
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Password;
@@ -69,13 +69,13 @@ class CognitoClient
     {
         try {
             $response = $this->client->adminInitiateAuth([
-                'AuthFlow'       => 'ADMIN_NO_SRP_AUTH',
+                'AuthFlow' => 'ADMIN_NO_SRP_AUTH',
                 'AuthParameters' => [
-                    'USERNAME'     => $email,
-                    'PASSWORD'     => $password,
+                    'USERNAME' => $email,
+                    'PASSWORD' => $password,
                     //'SECRET_HASH'  => $this->cognitoSecretHash($email),
                 ],
-                'ClientId'   => $this->clientId,
+                'ClientId' => $this->clientId,
                 'UserPoolId' => $this->poolId,
             ]);
         } catch (CognitoIdentityProviderException $exception) {
@@ -104,11 +104,11 @@ class CognitoClient
 
         try {
             $response = $this->client->signUp([
-                'ClientId'       => $this->clientId,
-                'Password'       => $password,
+                'ClientId' => $this->clientId,
+                'Password' => $password,
                 //'SecretHash'     => $this->cognitoSecretHash($email),
                 'UserAttributes' => $this->formatAttributes($attributes),
-                'Username'       => $email,
+                'Username' => $email,
             ]);
         } catch (CognitoIdentityProviderException $e) {
             if ($e->getAwsErrorCode() === self::USERNAME_EXISTS) {
@@ -118,7 +118,7 @@ class CognitoClient
             throw $e;
         }
 
-        return (bool) $response['UserConfirmed'];
+        return (bool)$response['UserConfirmed'];
     }
 
     /**
@@ -132,9 +132,9 @@ class CognitoClient
     {
         try {
             $result = $this->client->forgotPassword([
-                'ClientId'   => $this->clientId,
+                'ClientId' => $this->clientId,
                 //'SecretHash' => $this->cognitoSecretHash($username),
-                'Username'   => $username,
+                'Username' => $username,
             ]);
         } catch (CognitoIdentityProviderException $e) {
             if ($e->getAwsErrorCode() === self::USER_NOT_FOUND) {
@@ -160,11 +160,11 @@ class CognitoClient
     {
         try {
             $this->client->confirmForgotPassword([
-                'ClientId'         => $this->clientId,
+                'ClientId' => $this->clientId,
                 'ConfirmationCode' => $code,
-                'Password'         => $password,
+                'Password' => $password,
                 //'SecretHash'       => $this->cognitoSecretHash($username),
-                'Username'         => $username,
+                'Username' => $username,
             ]);
         } catch (CognitoIdentityProviderException $e) {
             if ($e->getAwsErrorCode() === self::USER_NOT_FOUND) {
@@ -200,12 +200,12 @@ class CognitoClient
 
         try {
             $this->client->AdminCreateUser([
-                'UserPoolId'             => $this->poolId,
-                'TemporaryPassword'      => Str::random(40),
+                'UserPoolId' => $this->poolId,
+                'TemporaryPassword' => Str::random(40),
                 'DesiredDeliveryMediums' => [
                     'EMAIL',
                 ],
-                'Username'       => $username,
+                'Username' => $username,
                 'UserAttributes' => $this->formatAttributes($attributes),
             ]);
         } catch (CognitoIdentityProviderException $e) {
@@ -232,12 +232,12 @@ class CognitoClient
     {
         try {
             $this->client->AdminRespondToAuthChallenge([
-                'ClientId'           => $this->clientId,
-                'UserPoolId'         => $this->poolId,
-                'Session'            => $session,
+                'ClientId' => $this->clientId,
+                'UserPoolId' => $this->poolId,
+                'Session' => $session,
                 'ChallengeResponses' => [
                     'NEW_PASSWORD' => $password,
-                    'USERNAME'     => $username,
+                    'USERNAME' => $username,
                    //'SECRET_HASH'  => $this->cognitoSecretHash($username),
                 ],
                 'ChallengeName' => 'NEW_PASSWORD_REQUIRED',
@@ -262,8 +262,8 @@ class CognitoClient
     {
         if (config('cognito.delete_user')) {
             $this->client->adminDeleteUser([
-                'UserPoolId'  => $this->poolId,
-                'Username'    => $username,
+                'UserPoolId' => $this->poolId,
+                'Username' => $username,
             ]);
         }
     }
@@ -272,7 +272,7 @@ class CognitoClient
     {
         $this->client->adminResetUserPassword([
             'UserPoolId' => $this->poolId,
-            'Username'   => $username,
+            'Username' => $username,
         ]);
     }
 
@@ -280,7 +280,7 @@ class CognitoClient
     {
         $this->client->adminConfirmSignUp([
             'UserPoolId' => $this->poolId,
-            'Username'   => $username,
+            'Username' => $username,
         ]);
     }
 
@@ -297,8 +297,8 @@ class CognitoClient
     public function setUserAttributes($username, array $attributes)
     {
         $this->client->AdminUpdateUserAttributes([
-            'Username'       => $username,
-            'UserPoolId'     => $this->poolId,
+            'Username' => $username,
+            'UserPoolId' => $this->poolId,
             'UserAttributes' => $this->formatAttributes($attributes),
         ]);
 
@@ -312,7 +312,7 @@ class CognitoClient
      */
     protected function cognitoSecretHash($username)
     {
-        return $this->hash($username.$this->clientId);
+        return $this->hash($username . $this->clientId);
     }
 
     /**
@@ -344,7 +344,7 @@ class CognitoClient
     {
         try {
             $user = $this->client->AdminGetUser([
-                'Username'   => $username,
+                'Username' => $username,
                 'UserPoolId' => $this->poolId,
             ]);
         } catch (CognitoIdentityProviderException $e) {
@@ -366,7 +366,7 @@ class CognitoClient
 
         foreach ($attributes as $key => $value) {
             $userAttributes[] = [
-                'Name'  => $key,
+                'Name' => $key,
                 'Value' => $value,
             ];
         }

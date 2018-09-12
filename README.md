@@ -38,7 +38,7 @@ Using a version prior to Laravel 5.5 you need to manually register the service p
 // config/app.php
 'providers' => [
     ...
-    Kovaloff\LaravelCognitoAuth\CognitoAuthServiceProvider::class,
+    JvrSolis\LaravelCognitoAuth\CognitoAuthServiceProvider::class,
     
 ];
 ```
@@ -46,7 +46,7 @@ Using a version prior to Laravel 5.5 you need to manually register the service p
 Next you can publish the config and the view.
 
 ```bash
-php artisan vendor:publish --provider="Kovaloff\LaravelCognitoAuth\CognitoAuthServiceProvider"
+php artisan vendor:publish --provider="JvrSolis\LaravelCognitoAuth\CognitoAuthServiceProvider"
 ```
 Last but not least you want to change the auth driver. To do so got to your config\auth.php file and change it 
 to look the following:
@@ -106,10 +106,10 @@ If you are already working on an existing project and want to integrate Cognito 
 
 Our package is providing you 4 traits you can just add to your Auth Controllers to get our package running.
 
-- Kovaloff\LaravelCognitoAuth\Auth\AuthenticatesUsers
-- Kovaloff\LaravelCognitoAuth\Auth\RegistersUsers
-- Kovaloff\LaravelCognitoAuth\Auth\ResetsPasswords
-- Kovaloff\LaravelCognitoAuth\Auth\SendsPasswordResetEmails
+- JvrSolis\LaravelCognitoAuth\Auth\AuthenticatesUsers
+- JvrSolis\LaravelCognitoAuth\Auth\RegistersUsers
+- JvrSolis\LaravelCognitoAuth\Auth\ResetsPasswords
+- JvrSolis\LaravelCognitoAuth\Auth\SendsPasswordResetEmails
 
 
 In the simplest way you just go through your Auth Controllers and change namespaces from the traits which are currently implemented from Laravel.
