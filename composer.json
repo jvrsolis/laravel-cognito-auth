@@ -24,5 +24,11 @@
         "psr-4": {
             "JvrSolis\\LaravelCognitoAuth\\": ""
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/jvrsolis/laravel-cognito-auth.git"
+        }
+    ]
 }
