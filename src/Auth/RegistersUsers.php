@@ -2,8 +2,6 @@
 
 namespace JvrSolis\LaravelCognitoAuth\Auth;
 
-use App\Events\Frontend\Auth\UserRegistered;
-use App\Http\Requests\RegisterRequest;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
 use JvrSolis\LaravelCognitoAuth\CognitoClient;
@@ -21,14 +19,13 @@ trait RegistersUsers
      * @return \Illuminate\Http\Response
      * @throws InvalidUserFieldException
      */
-    public function register(RegisterRequest $request)
+    public function register(Request $request)
     {
         $this->validator($request->all())->validate();
 
         $attributes = [];
 
         $userFields = config('cognito.sso_user_fields');
-        $request->request->add(['name' => $request->get('first_name') . ' ' . $request->get('last_name')]);
 
         foreach ($userFields as $userField) {
             if ($request->filled($userField)) {
@@ -40,7 +37,7 @@ trait RegistersUsers
 
         app()->make(CognitoClient::class)->register($request->email, $request->password, $attributes);
 
-        event(new UserRegistered($user = $this->userRepository->create($request->only('first_name', 'last_name', 'email', 'password'))));
+        event(new Registered($user = $this->create($request->all())));
 
         auth()->login($user);
 

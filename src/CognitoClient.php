@@ -73,7 +73,7 @@ class CognitoClient
                 'AuthParameters' => [
                     'USERNAME' => $email,
                     'PASSWORD' => $password,
-                    //'SECRET_HASH'  => $this->cognitoSecretHash($email),
+                    'SECRET_HASH' => $this->cognitoSecretHash($email),
                 ],
                 'ClientId' => $this->clientId,
                 'UserPoolId' => $this->poolId,
@@ -106,7 +106,7 @@ class CognitoClient
             $response = $this->client->signUp([
                 'ClientId' => $this->clientId,
                 'Password' => $password,
-                //'SecretHash'     => $this->cognitoSecretHash($email),
+                'SecretHash' => $this->cognitoSecretHash($email),
                 'UserAttributes' => $this->formatAttributes($attributes),
                 'Username' => $email,
             ]);
@@ -133,7 +133,7 @@ class CognitoClient
         try {
             $result = $this->client->forgotPassword([
                 'ClientId' => $this->clientId,
-                //'SecretHash' => $this->cognitoSecretHash($username),
+                'SecretHash' => $this->cognitoSecretHash($username),
                 'Username' => $username,
             ]);
         } catch (CognitoIdentityProviderException $e) {
@@ -163,7 +163,7 @@ class CognitoClient
                 'ClientId' => $this->clientId,
                 'ConfirmationCode' => $code,
                 'Password' => $password,
-                //'SecretHash'       => $this->cognitoSecretHash($username),
+                'SecretHash' => $this->cognitoSecretHash($username),
                 'Username' => $username,
             ]);
         } catch (CognitoIdentityProviderException $e) {
@@ -238,7 +238,7 @@ class CognitoClient
                 'ChallengeResponses' => [
                     'NEW_PASSWORD' => $password,
                     'USERNAME' => $username,
-                   //'SECRET_HASH'  => $this->cognitoSecretHash($username),
+                    'SECRET_HASH' => $this->cognitoSecretHash($username),
                 ],
                 'ChallengeName' => 'NEW_PASSWORD_REQUIRED',
             ]);
