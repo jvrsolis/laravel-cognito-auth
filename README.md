@@ -28,7 +28,7 @@ _This package is currently in development and is not production ready._
 You can install the package via composer.
 
 ```bash
-composer require black-bits/laravel-cognito-auth
+composer require jvrsolis/laravel-cognito-auth
 ```
 
 #### Laravel 5.4 and before
@@ -243,15 +243,11 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 If you discover any security related issues, please email [hello@blackbits.io](mailto:hello@blackbits.io) instead of using the issue tracker.
 
 ## Credits
-
+- [Black Bits, Inc.](https://blackbits.io).
 - [Oliver Heck](https://github.com/oheck)
 - [Andreas Przywara](https://github.com/aprzywara)
 - [Adrian Raeuchle](https://github.com/araeuchle)
 - [All Contributors](../../contributors)
-
-## Support us
-
-Black Bits, Inc. is a web and consulting agency specialized in Laravel and AWS based in Grants Pass, Oregon. You'll find an overview of what we do [on our website](https://blackbits.io).
 
 ## License
 
