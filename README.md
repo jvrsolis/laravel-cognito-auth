@@ -25,7 +25,14 @@ _This package is currently in development and is not production ready._
 
 ## Installation
 
-You can install the package via composer.
+You can install the package via composer. Since this is a fork just add the VCS in your composer.json
+then install normally.
+```
+    {
+        "type": "vcs",
+        "url": "https://github.com/jvrsolis/laravel-cognito-auth.git"
+    }
+```
 
 ```bash
 composer require jvrsolis/laravel-cognito-auth
